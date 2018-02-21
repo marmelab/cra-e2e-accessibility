@@ -19,15 +19,15 @@ describe('Home page', () => {
         // Wait until our content is visible, here we just wait for title
         await driver.wait(until.elementLocated(By.css('h1')));
 
-        const result = await analyzeAccessibility();
+        const results = await analyzeAccessibility();
 
         const title = await driver.findElement(By.css('h1')).getText();
         assert.equal(title, 'Welcome to React');
 
         assert.equal(
-            result.violations.length,
+            results.violations.length,
             0,
-            formatAccessibilityViolations(result.violations)
+            formatAccessibilityViolations(results.violations)
         );
     });
 });

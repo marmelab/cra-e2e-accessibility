@@ -40,7 +40,8 @@ export const analyzeAccessibility = () =>
 export const formatAccessibilityViolations = violations => {
     const messages = violations.map(
         violation =>
-            `\r\n- ${violation.help} (${violation.nodes.length} elements affected)`,
+            `\r\n- ${violation.help} (${violation.nodes.length} elements affected)
+            \r  Help: ${violation.helpUrl}\r\n`,
     );
     return `${violations.length} violations found: ${messages.join()}`;
 };
